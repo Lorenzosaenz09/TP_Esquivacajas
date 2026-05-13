@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class CajaMovement : MonoBehaviour
 {
-    public float speed;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float speed = 5f;
+    public float aumentoVelocidad = 1f;
 
-    // Update is called once per frame
+    public bool gameOver = false;
+
     void Update()
     {
-      transform.Translate (0,-speed * Time.deltaTime, 0);
+        if (!gameOver)
+        {
+            transform.position += Vector3.down * speed * Time.deltaTime;
+        }
+    }
+
+    public void AumentarVelocidad()
+    {
+        speed += aumentoVelocidad;
     }
 }
